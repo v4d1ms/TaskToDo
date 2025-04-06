@@ -1,0 +1,21 @@
+services:
+  backend:
+    depends_on:
+      - database
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=jdbc:postgresql://database:5432/todoapp
+      - DATABASE_PASSWORD=passwd
+      - DATABASE_USER=usuario
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: passwd
+      POSTGRES_DB: todoapp
+    ports:
+      - "5432:5432"
