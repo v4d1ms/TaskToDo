@@ -1,5 +1,6 @@
 # ToDoApp 
 A full stack project to learn api restful development and multiplataform app development
+I making this simple app to improve my coding skills and learn new one
 
 ## Project structure idea 
 - Frontend : React , React Native
