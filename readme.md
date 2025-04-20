@@ -11,5 +11,10 @@ I making this simple app to improve my coding skills and learn new one
 
 # How to RUN ? 
 - Install docker desktop on windows 
+
 - Run a terminal in project folder 
+
+- To compile spring project skipping test (to avoid db checking and getting errors)
+    * mvn clean package -DskipTests
+
 - Execute docker-compose up --build

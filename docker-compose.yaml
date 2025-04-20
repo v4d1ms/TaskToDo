@@ -4,13 +4,21 @@ services:
       - database
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./backend/Dockerfile
     ports:
       - "8080:8080"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/todoapp
       - SPRING_DATASOURCE_USERNAME=usuario
       - SPRING_DATASOURCE_PASSWORD=passwd
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
   database:
     image: postgres:latest
     environment:
