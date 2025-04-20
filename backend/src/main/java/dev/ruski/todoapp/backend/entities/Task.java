@@ -12,7 +12,7 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private long Id;
 
     private Instant createdAt;
     private Instant finishedAt;
@@ -20,9 +20,14 @@ public class Task {
     private String title;
     private String description;
 
-    public Task(int id, String title, String description, Instant neededAt) {
+
+    // Constructor por defecto
+    public Task() {
+    }
+
+    public Task(long id, String title, String description) {
         this.Id = id;
-        this.neededAt = neededAt;
+        this.neededAt = Instant.now();
         this.createdAt = Instant.now();
         this.finishedAt = null;
         this.title = title;
@@ -37,7 +42,7 @@ public class Task {
         this.neededAt = neededAt;
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
